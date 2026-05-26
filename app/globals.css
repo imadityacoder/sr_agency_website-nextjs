@@ -1,0 +1,278 @@
+@import "tailwindcss";
+
+:root {
+  --font-inter: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: "Space Grotesk", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --background: #030406;
+  --foreground: #f5f8ff;
+  --muted: #a6b0c5;
+  --line: rgba(255, 255, 255, 0.12);
+  --cyan: #5df4ff;
+  --blue: #497cff;
+  --violet: #9b5cff;
+  --rose: #ff5fb7;
+  --mint: #50f2a8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--foreground);
+  background:
+    radial-gradient(circle at 16% 8%, rgba(73, 124, 255, 0.18), transparent 26rem),
+    radial-gradient(circle at 86% 20%, rgba(255, 95, 183, 0.12), transparent 24rem),
+    linear-gradient(180deg, #040507 0%, #070913 42%, #030406 100%);
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  pointer-events: none;
+  content: "";
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent 85%);
+}
+
+body::after {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(120deg, transparent 0%, rgba(93, 244, 255, 0.05) 34%, transparent 48%),
+    repeating-linear-gradient(90deg, transparent 0 2px, rgba(255, 255, 255, 0.018) 2px 3px);
+  animation: ambient-shift 18s ease-in-out infinite alternate;
+}
+
+::selection {
+  color: #031018;
+  background: var(--cyan);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.font-display {
+  font-family: var(--font-display), var(--font-inter), sans-serif;
+}
+
+.noise {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.86' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
+}
+
+.glass {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.035));
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(22px);
+}
+
+.gradient-text {
+  color: transparent;
+  background: linear-gradient(100deg, #ffffff 5%, #bfeaff 34%, #b79aff 66%, #fff7fb 96%);
+  background-clip: text;
+}
+
+.glow-border {
+  position: relative;
+}
+
+.glow-border::before {
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  content: "";
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(93, 244, 255, 0.65), rgba(155, 92, 255, 0.38), rgba(255, 95, 183, 0.34));
+  opacity: 0.48;
+  transition: opacity 250ms ease, filter 250ms ease;
+}
+
+.glow-border:hover::before {
+  filter: blur(8px);
+  opacity: 0.9;
+}
+
+.section-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+section:not(#top) {
+  content-visibility: auto;
+  contain-intrinsic-size: 760px;
+}
+
+.cinematic-light {
+  position: absolute;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at center, rgba(93, 244, 255, 0.22), transparent 62%),
+    linear-gradient(90deg, transparent, rgba(155, 92, 255, 0.2), transparent);
+  filter: blur(18px);
+}
+
+.scanline {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanline::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(115deg, transparent 25%, rgba(255, 255, 255, 0.16), transparent 55%);
+  transform: translateX(-140%);
+  transition: transform 700ms ease;
+}
+
+.scanline:hover::after {
+  transform: translateX(140%);
+}
+
+.magnetic {
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.magnetic:hover {
+  transform: translateY(-3px) scale(1.01);
+}
+
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(165, 245, 255, 0.84);
+  box-shadow: 0 0 18px rgba(93, 244, 255, 0.7);
+  animation: float-particle 7s ease-in-out infinite;
+}
+
+@keyframes float-particle {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.24;
+  }
+  50% {
+    transform: translate3d(20px, -34px, 0);
+    opacity: 0.95;
+  }
+}
+
+@keyframes ambient-shift {
+  from {
+    transform: translateX(-1.5%) translateY(0);
+  }
+  to {
+    transform: translateX(1.5%) translateY(-1%);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes pulse-line {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scaleX(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+@media (max-width: 640px) {
+  html {
+    scroll-padding-top: 92px;
+  }
+
+  body {
+    background:
+      radial-gradient(circle at 18% 4%, rgba(73, 124, 255, 0.14), transparent 18rem),
+      radial-gradient(circle at 92% 14%, rgba(255, 95, 183, 0.08), transparent 16rem),
+      linear-gradient(180deg, #040507 0%, #070913 44%, #030406 100%);
+  }
+
+  body::before {
+    background-size: 54px 54px;
+    opacity: 0.65;
+  }
+
+  body::after,
+  .noise {
+    display: none;
+  }
+
+  .section-shell {
+    width: min(100% - 24px, 1180px);
+  }
+
+  .glass {
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.26), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+  }
+
+  .particle:nth-child(n + 15) {
+    display: none;
+  }
+
+  .cinematic-light {
+    opacity: 0.58;
+    filter: blur(12px);
+  }
+
+  .glow-border::before {
+    opacity: 0.34;
+  }
+
+  .scanline::after {
+    display: none;
+  }
+}
