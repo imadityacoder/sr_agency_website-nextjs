@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { navItems } from "@/data/site";
@@ -19,8 +20,15 @@ export function Navbar() {
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-white/12 bg-black/40 px-3 py-3 shadow-[0_18px_70px_rgba(0,0,0,0.32)] backdrop-blur-2xl sm:px-5">
         <a href="#top" className="flex items-center gap-3">
-          <span className="grid size-9 place-items-center rounded-full border border-cyan-200/25 bg-white/10 shadow-[0_0_24px_rgba(93,244,255,0.18)]">
-            <span className="font-display text-sm font-bold">SR</span>
+          <span className="grid size-10 place-items-center overflow-hidden rounded-full border border-cyan-200/25 bg-transparent shadow-[0_0_24px_rgba(93,244,255,0.18)]">
+            <Image
+              src="/logo/logo.png"
+              alt="SR Studio logo"
+              width={40}
+              height={40}
+              priority
+              className="size-10 object-contain p-1"
+            />
           </span>
           <span className="font-display text-sm font-semibold tracking-wide">SR Studio</span>
         </a>
