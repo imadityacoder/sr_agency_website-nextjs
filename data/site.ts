@@ -179,3 +179,17 @@ export const footerIndustries = [
   "Salons",
   "Coaching Institutes",
 ];
+
+export const contactInfo = {
+  email: "srstudioindia@gmail.com",
+  phoneDisplay: "+91 88771 30087",
+  phoneHref: "+918877130087",
+  whatsappNumber: "918877130087",
+};
+
+export const consultationSlots = ["11:00", "14:30", "18:00"];
+
+export const formService = {
+  endpoint: "https://api.web3forms.com/submit",
+  accessKey: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? "",
+};

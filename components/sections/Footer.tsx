@@ -1,5 +1,5 @@
 import { ArrowRight, Globe2, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
-import { footerIndustries, footerServices } from "@/data/site";
+import { contactInfo, footerIndustries, footerServices } from "@/data/site";
 
 const socialLinks = [
   [Instagram, "Instagram"],
@@ -65,13 +65,13 @@ export function Footer() {
           <div>
             <h3 className="font-display text-sm font-semibold text-white">Start a Project</h3>
             <div className="mt-4 grid gap-3 text-sm text-white/56">
-              <a href="mailto:hello@srstudio.co" className="flex items-center gap-2 transition hover:text-white">
+              <a href={`mailto:${contactInfo.email}`} className="flex items-center gap-2 transition hover:text-white">
                 <Mail className="size-4 text-cyan-100/72" />
-                hello@srstudio.co
+                {contactInfo.email}
               </a>
-              <a href="tel:+910000000000" className="flex items-center gap-2 transition hover:text-white">
+              <a href={`tel:${contactInfo.phoneHref}`} className="flex items-center gap-2 transition hover:text-white">
                 <Phone className="size-4 text-cyan-100/72" />
-                +91 00000 00000
+                {contactInfo.phoneDisplay}
               </a>
               <span className="flex items-center gap-2">
                 <MapPin className="size-4 text-cyan-100/72" />
