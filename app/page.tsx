@@ -6,6 +6,7 @@ import {
   Portfolio,
   Process,
   Services,
+  Pricing,
   Testimonials,
   WhyChooseUs,
 } from "@/components/sections";
@@ -17,6 +18,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Services />
+      <Pricing />
       <Portfolio />
       <WhyChooseUs />
       <Process />

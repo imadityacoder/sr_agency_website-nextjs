@@ -8,7 +8,7 @@ import { portfolioItems } from "@/data/site";
 
 export function Portfolio() {
   return (
-    <section id="portfolio" className="relative overflow-hidden py-16 sm:py-32">
+    <section id="portfolio" className="relative py-20 sm:py-36 overflow-hidden">
       <div className="section-shell">
         <SectionHeader
           eyebrow="Portfolio"
@@ -20,14 +20,14 @@ export function Portfolio() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-120px" }}
-          className="grid gap-5 md:grid-cols-2 lg:grid-cols-3"
+          className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
         >
           {portfolioItems.map((project, index) => (
             <motion.article
               key={project.title}
               variants={reveal}
-              whileHover={{ y: -9 }}
-              className="group rounded-[24px] border border-white/10 bg-white/[0.045] p-2.5 backdrop-blur-xl sm:rounded-[28px] sm:p-3"
+              whileHover={{ y: -6, scale: 1.01 }}
+              className="glass group rounded-[24px] border border-white/10 bg-[#090b12] p-3 backdrop-blur-xl sm:rounded-[28px] sm:p-4 transition-all duration-300"
             >
               <div className={`relative h-48 overflow-hidden rounded-[20px] bg-gradient-to-br sm:h-56 sm:rounded-[22px] ${project.palette}`}>
                 <motion.div
@@ -45,16 +45,16 @@ export function Portfolio() {
                     <span className="block h-3 w-1/2 rounded-full bg-white/42" />
                     <span className="block h-3 w-5/6 rounded-full bg-white/24" />
                   </div>
-                  <div className="absolute bottom-3 right-3 rounded-2xl bg-black/34 px-3 py-2 text-xs font-semibold text-white sm:bottom-4 sm:right-4 sm:text-sm">
+                  <div className="absolute bottom-3 right-3 rounded-2xl bg-black/40 px-3 py-2 text-xs font-bold text-white sm:bottom-4 sm:right-4 sm:text-sm">
                     {project.result}
                   </div>
                 </div>
               </div>
               <div className="p-3 sm:p-4">
-                <h3 className="font-display text-xl font-semibold">{project.title}</h3>
+                <h3 className="font-display text-lg font-bold tracking-tight text-white sm:text-xl">{project.title}</h3>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {project.points.map((point) => (
-                    <span key={point} className="rounded-full border border-white/10 bg-white/[0.045] px-3 py-1 text-xs text-white/62">
+                    <span key={point} className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-white/60">
                       {point}
                     </span>
                   ))}

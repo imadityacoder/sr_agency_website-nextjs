@@ -1,4 +1,4 @@
-export const navItems = ["Services", "Portfolio", "Process", "Testimonials", "Contact"];
+export const navItems = ["Services", "Pricing", "Portfolio", "Process", "Testimonials", "Contact"];
 
 export const heroStats = [
   "50+ Projects",
@@ -193,3 +193,98 @@ export const formService = {
   endpoint: "https://api.web3forms.com/submit",
   accessKey: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? "",
 };
+
+export const pricingPackages = [
+  {
+    name: "Starter Website",
+    price: 9999,
+    suffix: "",
+    bestFor: "Salons, Cafes, Small Businesses, Local Services",
+    features: [
+      "Premium Landing Page",
+      "Mobile Responsive Design",
+      "WhatsApp Integration",
+      "Contact Form",
+      "Google Maps Integration",
+      "Basic SEO Setup",
+      "Fast Loading Optimization",
+      "7 Days Support",
+    ],
+    ctaText: "Get Started",
+    ctaHref: "#contact",
+  },
+  {
+    name: "Business Growth Website",
+    price: 11999,
+    suffix: "",
+    popular: true,
+    bestFor: "Restaurants, Gyms, Clinics, Coaching Institutes, Growing Businesses",
+    features: [
+      "Up to 5 Custom Pages",
+      "Premium UI/UX Design",
+      "Booking & Inquiry Forms",
+      "Advanced Mobile Optimization",
+      "SEO Optimization",
+      "Testimonials Section",
+      "Google Analytics Setup",
+      "Speed Optimization",
+      "Social Media Integration",
+      "30 Days Support",
+    ],
+    ctaText: "Book Consultation",
+    ctaHref: "#contact",
+  },
+  {
+    name: "Premium Business Website",
+    price: 24999,
+    suffix: "+",
+    bestFor: "Large Coaching Institutes, Multi-location Clinics, Established Brands, High Growth Businesses",
+    features: [
+      "Unlimited Pages",
+      "Custom Design System",
+      "AI-Powered Features",
+      "CRM Integration",
+      "Advanced SEO Setup",
+      "Premium Animations",
+      "Conversion Optimization",
+      "Performance Optimization",
+      "Priority Support",
+    ],
+    ctaText: "Schedule Strategy Call",
+    ctaHref: "#contact",
+  },
+];
+
+export const maintenancePlans = [
+  {
+    name: "Essential Care",
+    price: 599,
+    features: [
+      "Security Updates",
+      "Monthly Backup",
+      "Content Changes",
+      "Email Support",
+    ],
+  },
+  {
+    name: "Growth Care",
+    price: 1999,
+    features: [
+      "Everything in Essential",
+      "Performance Monitoring",
+      "SEO Monitoring",
+      "Priority Support",
+    ],
+  },
+  {
+    name: "Business Care",
+    price: 2999,
+    features: [
+      "Everything in Growth",
+      "Monthly Reports",
+      "Landing Page Updates",
+      "Conversion Improvements",
+      "Dedicated Support",
+    ],
+  },
+];

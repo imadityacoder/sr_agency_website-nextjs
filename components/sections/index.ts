@@ -6,3 +6,4 @@ export { Process } from "./Process";
 export { Services } from "./Services";
 export { Testimonials } from "./Testimonials";
 export { WhyChooseUs } from "./WhyChooseUs";
+export { Pricing } from "./Pricing";
