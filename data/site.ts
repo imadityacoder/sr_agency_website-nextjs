@@ -1,4 +1,4 @@
-export const navItems = ["Services", "Pricing", "Our Works", "Process", "Testimonials", "Contact"];
+export const navItems = ["Services", "Pricing", "Works", "Process", "Testimonials", "Contact"];
 
 export const heroStats = [
   "50+ Projects",

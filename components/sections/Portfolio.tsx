@@ -15,11 +15,11 @@ export function Portfolio() {
   const filteredProjects = activeFilter === "All"
     ? projects
     : projects.filter((project) =>
-        project.filterCategories.includes(activeFilter as any)
-      );
+      project.filterCategories.includes(activeFilter as any)
+    );
 
   return (
-    <section id="portfolio" className="relative py-20 sm:py-36 overflow-hidden">
+    <section id="work" className="relative py-20 sm:py-36 overflow-hidden">
       <div className="section-shell">
         <SectionHeader
           eyebrow="Our Works"
