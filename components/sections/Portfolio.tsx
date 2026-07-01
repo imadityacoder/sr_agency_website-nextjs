@@ -19,7 +19,7 @@ export function Portfolio() {
     );
 
   return (
-    <section id="work" className="relative py-20 sm:py-36 overflow-hidden">
+    <section id="works" className="relative py-20 sm:py-36 overflow-hidden">
       <div className="section-shell">
         <SectionHeader
           eyebrow="Our Works"
