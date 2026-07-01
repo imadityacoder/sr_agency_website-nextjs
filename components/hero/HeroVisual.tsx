@@ -38,7 +38,7 @@ export function HeroVisual() {
         <div className="mb-4 flex items-start justify-between gap-3">
           <div>
             <p className="text-xs uppercase tracking-[0.2em] text-cyan-100/60">Live growth system</p>
-            <h3 className="font-display text-lg font-semibold sm:text-xl">Luxury Gym Launch</h3>
+            <h3 className="font-display text-lg font-semibold sm:text-xl">Shree Ram Classes, Patna</h3>
           </div>
           <div className="rounded-full bg-emerald-300/15 px-3 py-1 text-xs font-semibold text-emerald-200">
             Active
@@ -65,15 +65,14 @@ export function HeroVisual() {
           key={project.title}
           animate={{ y: [0, index % 2 ? 16 : -16, 0], x: [0, index % 2 ? -8 : 8, 0] }}
           transition={{ duration: 6 + index, repeat: Infinity, ease: "easeInOut" }}
-          className={`glass relative rounded-[22px] p-3 sm:p-4 md:absolute md:w-[220px] md:rounded-[24px] ${
-            index === 0
+          className={`glass relative rounded-[22px] p-3 sm:p-4 md:absolute md:w-[220px] md:rounded-[24px] ${index === 0
               ? "md:right-1 md:top-0"
               : index === 1
                 ? "md:bottom-24 md:left-0"
                 : index === 2
                   ? "md:bottom-0 md:right-8"
                   : "md:left-12 md:top-72"
-          }`}
+            }`}
           style={{ transform: `translateZ(${60 + index * 20}px)` }}
         >
           <div className={`mb-3 h-20 rounded-[18px] bg-gradient-to-br ${project.color} p-3 shadow-[0_20px_48px_rgba(0,0,0,0.24)] sm:mb-4 sm:h-24`}>

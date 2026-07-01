@@ -15,7 +15,7 @@ export function Process() {
           copy="Every step is structured, visible, and momentum-driven, so premium work still moves with urgency."
         />
         <div className="relative mt-12 sm:mt-16">
-          <div className="absolute left-5 top-8 hidden h-[calc(100%-4rem)] w-px bg-white/12 md:left-1/2 md:block" />
+          <div className="absolute left-[20px] top-8 h-[calc(100%-4rem)] w-px bg-white/12 md:left-1/2" />
           <motion.div
             variants={stagger}
             initial="hidden"
@@ -27,7 +27,7 @@ export function Process() {
               <motion.div
                 key={title}
                 variants={reveal}
-                className={`relative grid gap-6 md:grid-cols-2 ${index % 2 ? "" : "md:[&>div:first-child]:col-start-2"}`}
+                className={`relative grid gap-6 pl-10 md:pl-0 md:grid-cols-2 ${index % 2 ? "" : "md:[&>div:first-child]:col-start-2"}`}
               >
                 <div className="glass rounded-[26px] border border-white/10 bg-[#090b12] p-6 backdrop-blur-xl sm:p-8 hover:border-cyan-400/20 transition-all duration-300">
                   <div className="mb-5 flex items-center gap-4">
@@ -38,7 +38,7 @@ export function Process() {
                   </div>
                   <p className="text-sm leading-relaxed text-white/60">{copy}</p>
                 </div>
-                <span className="absolute left-1/2 top-8 hidden size-4 -translate-x-1/2 rounded-full bg-cyan-100 shadow-[0_0_24px_rgba(93,244,255,0.8)] md:block" />
+                <span className="absolute left-[20px] top-8 size-3.5 -translate-x-1/2 rounded-full bg-cyan-100 shadow-[0_0_24px_rgba(93,244,255,0.8)] md:left-1/2 md:size-4" />
               </motion.div>
             ))}
           </motion.div>

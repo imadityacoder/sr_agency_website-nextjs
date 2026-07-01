@@ -17,9 +17,9 @@ export default function Home() {
       <div className="noise" />
       <Navbar />
       <Hero />
+      <Portfolio />
       <Services />
       <Pricing />
-      <Portfolio />
       <WhyChooseUs />
       <Process />
       <Testimonials />

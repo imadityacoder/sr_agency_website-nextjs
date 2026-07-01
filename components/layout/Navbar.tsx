@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { navItems } from "@/data/site";
+import { inherits } from "util";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -53,7 +54,8 @@ export function Navbar() {
         </div>
         <a
           href="#contact"
-          className="hidden rounded-full bg-white px-5 py-2 text-sm font-semibold text-black transition hover:bg-cyan-100 md:inline-flex relative z-50"
+          className="hidden rounded-full bg-white px-5 py-2 text-sm font-semibold !text-black transition hover:bg-cyan-100 md:inline-flex relative z-50"
+
         >
           Book Call
         </a>
@@ -113,7 +115,7 @@ export function Navbar() {
                 Book a Free Consultation
               </a>
               <div className="text-xs text-white/40 leading-5">
-                srstudioindia@gmail.com <br /> +91 88771 30087
+                iamadityafreelancer@gmail.com <br /> +91 88771 30087
               </div>
             </div>
           </motion.div>

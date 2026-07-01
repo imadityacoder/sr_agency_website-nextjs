@@ -1,4 +1,4 @@
-export const navItems = ["Services", "Pricing", "Portfolio", "Process", "Testimonials", "Contact"];
+export const navItems = ["Services", "Pricing", "Our Works", "Process", "Testimonials", "Contact"];
 
 export const heroStats = [
   "50+ Projects",
@@ -21,16 +21,16 @@ export const floatingProjects = [
     metric: "3.8x",
   },
   {
-    title: "Clinic Dashboard",
-    tag: "Appointments",
-    color: "from-emerald-300/70 to-cyan-500/60",
-    metric: "24/7",
-  },
-  {
     title: "Coaching Website",
     tag: "Lead engine",
     color: "from-amber-200/70 to-violet-500/60",
     metric: "91%",
+  },
+  {
+    title: "Clinic Dashboard",
+    tag: "Appointments",
+    color: "from-emerald-300/70 to-cyan-500/60",
+    metric: "24/7",
   },
 ];
 
@@ -77,50 +77,6 @@ export const serviceItems = [
   },
 ] as const;
 
-export const portfolioItems = [
-  {
-    title: "Apex Luxury Gym",
-    sector: "Fitness",
-    result: "+67% trial bookings",
-    palette: "from-cyan-300 via-blue-500 to-slate-900",
-    points: ["Class engine", "Trainer profiles", "Offer landing pages"],
-  },
-  {
-    title: "Noir Table",
-    sector: "Restaurant",
-    result: "3.2x online reservations",
-    palette: "from-rose-300 via-violet-500 to-stone-950",
-    points: ["Menu system", "Table booking", "Private dining funnel"],
-  },
-  {
-    title: "Vector IIT Academy",
-    sector: "Coaching",
-    result: "+41% qualified leads",
-    palette: "from-amber-200 via-cyan-400 to-indigo-950",
-    points: ["Course pages", "AI lead routing", "Parent trust layer"],
-  },
-  {
-    title: "Elysian Clinic",
-    sector: "Healthcare",
-    result: "24/7 appointment flow",
-    palette: "from-emerald-200 via-cyan-400 to-zinc-950",
-    points: ["Doctor pages", "Patient dashboard", "Care reminders"],
-  },
-  {
-    title: "Bloom & Bean Cafe",
-    sector: "Cafe",
-    result: "+58% local discovery",
-    palette: "from-pink-200 via-orange-300 to-neutral-950",
-    points: ["Events", "Loyalty", "Local SEO"],
-  },
-  {
-    title: "Muse Salon",
-    sector: "Salon",
-    result: "2.6x repeat bookings",
-    palette: "from-fuchsia-200 via-violet-400 to-black",
-    points: ["Service menu", "Stylist booking", "Upsell flow"],
-  },
-];
 
 export const advantages = [
   ["Fast delivery", "Launch-ready systems without the usual drag."],

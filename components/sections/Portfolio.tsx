@@ -1,69 +1,75 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { ChevronRight } from "lucide-react";
-import { reveal, stagger } from "@/components/motion/variants";
+import { reveal } from "@/components/motion/variants";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { portfolioItems } from "@/data/site";
+import { ButtonLink } from "@/components/ui/ButtonLink";
+import { projects } from "@/data/projects";
+import { FilterButtons, type FilterCategory } from "./FilterButtons";
+import { PortfolioGrid } from "./PortfolioGrid";
 
 export function Portfolio() {
+  const [activeFilter, setActiveFilter] = useState<FilterCategory>("All");
+
+  const filteredProjects = activeFilter === "All"
+    ? projects
+    : projects.filter((project) =>
+        project.filterCategories.includes(activeFilter as any)
+      );
+
   return (
     <section id="portfolio" className="relative py-20 sm:py-36 overflow-hidden">
       <div className="section-shell">
         <SectionHeader
-          eyebrow="Portfolio"
-          title="Cinematic web systems for high-trust local businesses."
-          copy="Each concept is built around a real business outcome: bookings, discovery, qualified leads, repeat customers, and stronger first impressions."
+          eyebrow="Our Works"
+          title="Premium products built for high-trust digital presence."
+          copy="Each system is designed around measurable business outcomes: higher booking rates, interactive educational showcases, and friction-free user journeys."
         />
+
+        {/* Filter Section */}
         <motion.div
-          variants={stagger}
+          variants={reveal}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, margin: "-120px" }}
-          className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+          viewport={{ once: true, margin: "-80px" }}
+          className="flex justify-center"
         >
-          {portfolioItems.map((project, index) => (
-            <motion.article
-              key={project.title}
-              variants={reveal}
-              whileHover={{ y: -6, scale: 1.01 }}
-              className="glass group rounded-[24px] border border-white/10 bg-[#090b12] p-3 backdrop-blur-xl sm:rounded-[28px] sm:p-4 transition-all duration-300"
-            >
-              <div className={`relative h-48 overflow-hidden rounded-[20px] bg-gradient-to-br sm:h-56 sm:rounded-[22px] ${project.palette}`}>
-                <motion.div
-                  animate={{ x: ["-25%", "25%", "-25%"] }}
-                  transition={{ duration: 8 + index, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute inset-y-0 left-1/3 w-24 rotate-12 bg-white/18 blur-2xl"
-                />
-                <div className="absolute inset-3 rounded-[18px] border border-white/18 bg-black/25 p-3 backdrop-blur-sm sm:inset-4 sm:p-4">
-                  <div className="mb-7 flex items-center justify-between sm:mb-9">
-                    <span className="rounded-full bg-white/18 px-3 py-1 text-xs font-semibold">{project.sector}</span>
-                    <ChevronRight className="size-5 transition group-hover:translate-x-1" />
-                  </div>
-                  <div className="space-y-2">
-                    <span className="block h-3 w-2/3 rounded-full bg-white/78" />
-                    <span className="block h-3 w-1/2 rounded-full bg-white/42" />
-                    <span className="block h-3 w-5/6 rounded-full bg-white/24" />
-                  </div>
-                  <div className="absolute bottom-3 right-3 rounded-2xl bg-black/40 px-3 py-2 text-xs font-bold text-white sm:bottom-4 sm:right-4 sm:text-sm">
-                    {project.result}
-                  </div>
-                </div>
-              </div>
-              <div className="p-3 sm:p-4">
-                <h3 className="font-display text-lg font-bold tracking-tight text-white sm:text-xl">{project.title}</h3>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {project.points.map((point) => (
-                    <span key={point} className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-white/60">
-                      {point}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.article>
-          ))}
+          <FilterButtons
+            activeFilter={activeFilter}
+            onFilterChange={setActiveFilter}
+          />
+        </motion.div>
+
+        {/* Dynamic Project Grid */}
+        <PortfolioGrid projects={filteredProjects} />
+
+        {/* Let's Build Your Project CTA Card */}
+        <motion.div
+          variants={reveal}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+          className="glass mt-16 sm:mt-24 p-8 sm:p-14 rounded-[28px] border border-white/10 bg-gradient-to-br from-[#090b12]/90 to-[#040507]/90 text-center relative overflow-hidden"
+        >
+          {/* Subtle colored glow spots */}
+          <div className="absolute -left-1/4 -top-1/4 size-80 rounded-full bg-cyan-500/10 blur-3xl pointer-events-none" />
+          <div className="absolute -right-1/4 -bottom-1/4 size-80 rounded-full bg-violet-500/10 blur-3xl pointer-events-none" />
+
+          <div className="relative z-10 flex flex-col items-center">
+            <h3 className="font-display text-2xl sm:text-4xl font-bold tracking-tight text-white mb-4">
+              Let's Build Your Project
+            </h3>
+            <p className="mx-auto max-w-xl text-sm sm:text-base leading-relaxed text-white/55 mb-8 text-balance">
+              Need a high-performance website, educational portal, or custom mobile application? Let's team up to shape a premium solution tailored specifically for your target audience.
+            </p>
+            <ButtonLink href="#contact" variant="primary">
+              Get Started
+            </ButtonLink>
+          </div>
         </motion.div>
       </div>
     </section>
   );
 }
+
